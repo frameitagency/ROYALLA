@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROYALLA Bed & Breakfast</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--hero:url("images/Hotel Style Bedroom Ideas.jfif");--bg:#f7f5f1;--card:#fff;--ink:#2a2521;--mute:#6b645c;--line:#e6e0d7;--tan:#c9a066;--tand:#8a6428;--wash:247,245,241;--glass:rgba(255,255,255,.72);--bad:#b3341e;--ok:#1b6b49;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130f;--card:#221c16;--ink:#f0ebe3;--mute:#a79e92;--line:#383028;--tand:#d9b57a;--wash:23,19,15;--glass:rgba(34,28,22,.75);--bad:#ff9a84;--ok:#7fdcae;color-scheme:dark}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 'Instrument Sans',system-ui,sans-serif}
+h1,h2,h3,.logo,.price,.score b,blockquote p,.dt b,#sum{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.1;margin:0}
+p{margin:.3em 0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.hero{min-height:680px;background:linear-gradient(90deg,rgba(24,18,13,.78) 0%,rgba(24,18,13,.56) 48%,rgba(24,18,13,.2) 100%),var(--hero) center 42%/cover;color:#fff;padding-bottom:56px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px}
+.logo{font-size:1.6rem;font-weight:600;letter-spacing:.3em;text-decoration:none}
+.nav div{display:flex;gap:22px;align-items:center;flex-wrap:wrap;font-size:.95rem}
+.nav a{text-decoration:none}.nav a:hover{text-decoration:underline}
+#wx{background:var(--glass);padding:5px 12px;border-radius:99px;font-size:.85rem}
+.hero #wx{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
+.hero .c{text-align:left;padding-top:78px;padding-bottom:42px}
+h1{font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:500;letter-spacing:-.01em;max-width:16ch;margin:0}
+.tl{max-width:48ch;margin:18px 0 0;font-size:1.12rem;color:rgba(255,255,255,.9)}
+.avail{display:grid;grid-template-columns:1fr 1fr 90px 1fr auto;gap:12px;align-items:end;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:18px;border:1px solid rgba(255,255,255,.65);border-radius:16px;max-width:1040px;margin:0 auto;box-shadow:0 18px 50px rgba(0,0,0,.2)}
+label{min-width:0;display:flex;flex-direction:column;font-size:.85rem;gap:5px;color:var(--mute)}
+input,select{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);min-width:0}
+.btn{background:var(--tan);color:#2a2521;border:0;padding:12px 26px;border-radius:99px;font:600 1rem 'Instrument Sans',sans-serif;cursor:pointer}
+.btn:hover{filter:brightness(1.07)}
+section{padding:72px 0}
+h2{font-size:clamp(2rem,4.5vw,3rem)}
+.sub{color:var(--mute);max-width:52ch;margin:10px 0 32px}
+.ctr{text-align:center}.ctr .sub{margin-left:auto;margin-right:auto}
+#roomGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px}
+.room{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(60,40,10,.1);display:flex;flex-direction:column}
+.ph{height:220px;background:var(--line) center/cover}
+.room .b{padding:22px;display:flex;flex-direction:column;gap:4px;flex:1}
+.room h3{font:600 1.15rem 'Instrument Sans',sans-serif}
+.tag{color:var(--mute);font-size:.88rem}
+.desc{color:var(--mute)}
+.price{font-size:2rem;font-weight:600;margin-top:10px}.price small{font:400 .9rem 'Instrument Sans',sans-serif;color:var(--mute)}
+.room .btn{align-self:flex-start;margin-top:10px}
+.room.off{opacity:.55}
+.band{background:linear-gradient(rgba(25,16,8,.68),rgba(25,16,8,.68)),url("images/Air BnB apartments.jfif") center 70%/cover;color:#fff;padding:88px 0}
+.band .wrap{display:flex;gap:56px;align-items:center;justify-content:center;flex-wrap:wrap}
+.score b{font-size:5.5rem;display:block}.score span{opacity:.85}
+blockquote{margin:0;max-width:30ch}blockquote p{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+blockquote cite{display:block;margin-top:10px;font-style:normal;opacity:.8;font-size:.9rem}
+blockquote.solo{max-width:24ch;text-align:center}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gal figure{margin:0}.gal img{width:100%;height:300px;object-fit:cover;border-radius:14px;display:block;cursor:zoom-in}
+#lb{border:0;padding:0;background:transparent;max-width:min(92vw,560px);max-height:92vh;overflow:visible}#lb::backdrop{background:rgba(20,14,8,.82)}#lb img{width:100%;max-height:80vh;object-fit:contain;border-radius:10px;display:block}#lb .btn{display:block;margin:12px auto 0}
+.burger{display:none;background:var(--glass);border:0;border-radius:8px;width:44px;height:44px;padding:11px 10px;cursor:pointer;flex-direction:column;justify-content:space-between}
+.burger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(9px) rotate(45deg)}.burger[aria-expanded=true] span:nth-child(2){opacity:0}.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+.gal figcaption{font-size:.88rem;color:var(--mute);margin-top:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.list{list-style:none;padding:0;margin:0}
+.list li{display:grid;grid-template-columns:60px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.dt{text-align:center;line-height:1;font-size:.8rem;color:var(--mute)}
+.dt b{display:block;font-size:2.2rem;color:var(--tand);margin-bottom:4px}
+.closed li{border-left:3px solid var(--tan);padding-left:14px}
+.bookcard{background:var(--card);border-radius:14px;box-shadow:0 8px 28px rgba(60,40,10,.1);padding:clamp(20px,4vw,40px)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+#sum{font-size:1.8rem;color:var(--tand)}
+#msg{padding:12px;border-radius:6px;display:none}
+#msg.err{display:block;background:rgba(179,52,30,.12);color:var(--bad)}
+#msg.ok{display:block;background:rgba(27,107,73,.12);color:var(--ok)}
+footer{background:#2a2521;color:#e9e3da;padding:30px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+:focus-visible{outline:3px solid var(--tand);outline-offset:2px}
+@media(max-width:820px){.hero{min-height:0;padding-bottom:32px;background-position:58% center}.avail{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:14px}.hero .c{padding-top:48px;padding-bottom:32px}.nav{padding-top:16px;padding-bottom:12px}.logo{font-size:1.35rem;letter-spacing:.22em}.band{padding:64px 0}.score b{font-size:4.2rem}section{padding:56px 0}input[type=date]{min-height:42px}.avail .btn{grid-column:1/-1}.two,form{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr;gap:12px}.gal img{height:190px}.nav{position:relative;flex-wrap:nowrap}.burger{display:flex}#menu{display:none;position:absolute;left:20px;right:20px;top:68px;z-index:5;flex-direction:column;align-items:flex-start;gap:4px;background:var(--card);box-shadow:0 12px 32px rgba(60,40,10,.2);border-radius:12px;padding:12px}#menu.open{display:flex}#menu a{padding:10px 8px;width:100%;font-size:1.05rem}#menu #wx{margin:6px 8px 4px;background:var(--bg)}}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+<div class="wrap nav"><a class="logo" href="#top">ROYALLA</a><button class="burger" id="bg" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button><div id="menu"><a href="#rooms">Rooms</a><a href="#stay">Gallery</a><a href="#events">Events</a><a href="#book">Book</a><span id="wx">Loading weather…</span></div></div>
+<div class="wrap c"><h1>Modern, elegant rooms and a proper breakfast</h1><p class="tl" id="tagline"></p></div>
+<div class="wrap"><div class="avail">
+<label>Check in<input id="hci" type="date"></label>
+<label>Check out<input id="hco" type="date"></label>
+<label>Guests<input id="hgu" type="number" min="1" value="2"></label>
+<label>Room<select id="hroom"></select></label>
+<button class="btn" id="hgo" type="button">Check availability</button>
+</div></div>
+</header>
+
+<main>
+<section id="rooms"><div class="wrap ctr"><h2>Discover your stay</h2><p class="sub">Prices are per night, breakfast included. Availability updates live.</p><div id="roomGrid" style="text-align:left"></div></div></section>
+
+<section class="band"><div class="wrap" id="band"></div></section>
+
+<section id="stay"><div class="wrap ctr"><h2>The place</h2><p class="sub">Quiet corridors, a bright lobby and rooms made for sleeping well. Tap a photo to enlarge it.</p>
+<div class="gal" style="text-align:left"><figure><img src="images/Air BnB apartments.jfif" alt="The property at dusk" loading="lazy"><figcaption>The property at dusk</figcaption></figure><figure><img src="images/download (35).jfif" alt="Bright hotel lobby" loading="lazy"><figcaption>Lobby</figcaption></figure><figure><img src="images/download (34).jfif" alt="Corridor to the rooms" loading="lazy"><figcaption>Corridor</figcaption></figure><figure><img src="images/download (32).jfif" alt="Comfortable guest room" loading="lazy"><figcaption>Guest room</figcaption></figure><figure><img src="images/Hotel Style Bedroom Ideas.jfif" alt="Elegant bedroom" loading="lazy"><figcaption>Royal Suite</figcaption></figure><figure><img src="images/download (31).jfif" alt="Twin room with desk" loading="lazy"><figcaption>Twin room</figcaption></figure></div><dialog id="lb"><img alt=""><button class="btn" type="button" id="lbx">Close</button></dialog></div></section>
+
+<section id="events" style="padding-top:0"><div class="wrap two">
+<div><h2>Events</h2><p class="sub">What’s on near us.</p><ul class="list" id="evList"></ul></div>
+<div><h2>Closed dates</h2><p class="sub">We can’t host guests on these days.</p><ul class="list closed" id="clList"></ul></div>
+</div></section>
+
+<section id="book" style="padding-top:0"><div class="wrap"><div class="bookcard"><h2>Book your stay</h2><p class="sub">Send your request on WhatsApp. We confirm the booking and share payment details there.</p>
+<form id="f">
+<label>Name<input id="name" required autocomplete="name"></label>
+<label>Room<select id="room" required></select></label>
+<label>Check in<input id="ci" type="date" required></label>
+<label>Check out<input id="co" type="date" required></label>
+<label>Guests<input id="gu" type="number" min="1" value="2" required></label>
+<label>Notes<input id="nt" placeholder="Arrival time, requests"></label>
+<div class="full" id="sum"></div>
+<div class="full" id="msg" role="status"></div>
+<div class="full"><button class="btn" type="submit">Send booking on WhatsApp</button></div>
+</form></div></div></section>
+</main>
+
+<footer><div class="wrap"><span id="fAddr"></span><span id="fPay"></span></div></footer>
+
+<script>
+/* ============ EDIT THIS SECTION ============ */
+const CONFIG = {
+  name: "ROYALLA",
+  tagline: "A small bed & breakfast with a handful of rooms, a warm welcome and breakfast made to order.",
+  review: {score:"", count:"", quote:"", by:""},   // optional real guest review, e.g. score "4.8", count "250+ reviews"
+  address: "Your address, Your town",
+  whatsapp: "27820000000",           // country code + number, digits only
+  currency: "R",
+  payment: "Payment: EFT or card link, sent on WhatsApp after we confirm.",
+  weather: { lat: -29.8587, lon: 31.0218, label: "Durban" },  // your B&B location
+  // Google Sheet: File > Share > "Anyone with the link: Viewer". Paste the ID from the sheet URL.
+  sheetId: "",                       // leave empty to see demo data
+  tabs: { rooms: "Rooms", closed: "Closed", events: "Events", settings: "Settings" }
+};
+/* Photo column: use a link or a path like images/room-garden.jpg (keep the images folder beside index.html).
+   Sheet columns (row 1 = headers, dates as YYYY-MM-DD text):
+   Rooms:  name | price | sleeps | description | available (yes/no) | photo (optional image URL)
+   Closed: start | end (optional) | reason | room (optional, blank = all rooms)
+   Events: date | title | details
+   Settings: key | value   (row: hero_image | image path or link for the top banner photo)
+*/
+/* ============================================ */
+
+const DEMO = {
+  rooms:[["name","price","sleeps","description","available","photo"],
+    ["Garden Room","950","2","Queen bed, en-suite shower, opens onto the garden.","yes","images/download (32).jfif"],
+    ["Royal Suite","1450","3","King bed, bath, sitting area and a view.","yes","images/Hotel Style Bedroom Ideas.jfif"],
+    ["Family Room","1700","4","Two bedrooms, shared bathroom, kitchenette.","no","images/download (31).jfif"]],
+  closed:[["start","end","reason","room"],["2026-12-24","2026-12-26","Family time","" ]],
+  settings:[["key","value"],["hero_image",""]],
+  events:[["date","title","details"],["2026-12-12","Craft market","Local makers, 9am to 2pm"],["2026-12-31","New Year’s Eve braai","Courtyard, from 6pm"]]
+};
+
+const $ = id => document.getElementById(id);
+const money = n => CONFIG.currency + Number(n).toLocaleString("en-ZA");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let rooms = [], closed = [], events = [], settings = [];
+
+function parseCSV(t){const r=[];let row=[],c="",q=false;
+  for(let i=0;i<t.length;i++){const ch=t[i];
+    if(q){if(ch=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=ch}
+    else if(ch=='"')q=true;else if(ch==","){row.push(c);c=""}
+    else if(ch=="\n"){row.push(c);r.push(row);row=[];c=""}else if(ch!="\r")c+=ch}
+  if(c||row.length){row.push(c);r.push(row)}return r}
+const KINDS={
+  rooms:{name:["name","room","roomname","roomtype"],price:["price","rate","pernight","pricepernight","cost"],sleeps:["sleeps","capacity","guests","maxguests"],description:["description","details","about","info"],available:["available","availability","status"],photo:["photo","image","imageurl","picture","img"]},
+  closed:{start:["start","startdate","from","date","closedfrom"],end:["end","enddate","to","until","closedto"],reason:["reason","note","notes"],room:["room","roomname"]},
+  settings:{key:["key","setting","name"],value:["value","url","link"]},
+  events:{date:["date","eventdate","when"],title:["title","event","eventname","name"],details:["details","description","info","about"]}};
+function toObjs(rows,kind){
+  const map=KINDS[kind];
+  const h=rows[0].map(x=>{const k=x.toLowerCase().replace(/[^a-z]/g,"");return Object.keys(map).find(c=>map[c].includes(k))||k});
+  const out=rows.slice(1).filter(r=>r.some(x=>x.trim())).map(r=>Object.fromEntries(h.map((k,i)=>[k,(r[i]||"").trim()])));
+  out.cols=h;return out}
+async function loadTab(tab,demo,kind){
+  if(!CONFIG.sheetId) return toObjs(demo,kind);
+  const id=(CONFIG.sheetId.match(/\/d\/([\w-]+)/)||[,CONFIG.sheetId])[1];
+  const url=`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&headers=1&sheet=${encodeURIComponent(tab)}&_=${Date.now()}`;
+  const res=await fetch(url);if(!res.ok)throw new Error(`Couldn’t read the “${tab}” tab.`);
+  const txt=await res.text();
+  if(/^\s*</.test(txt))throw new Error("The sheet isn’t shared publicly. In Google Sheets choose Share, then “Anyone with the link: Viewer”.");
+  const o=toObjs(parseCSV(txt),kind);
+  const need={rooms:["name","price"],closed:["start"],events:["date","title"],settings:["key","value"]}[kind];
+  if(!need.every(c=>o.cols.includes(c))){
+    if(kind==="rooms")throw new Error(`The “${tab}” tab needs these headers in row 1: name, price, sleeps, description, available, photo.`);
+    return []}
+  return o}
+const photoUrl=u=>{u=(u||"").trim();const m=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/)||u.match(/[?&]id=([\w-]+)/);return /drive\.google\.com/.test(u)&&m?`https://drive.google.com/thumbnail?id=${m[1]}&sz=w1000`:u};
+const ymd=x=>`${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,"0")}-${String(x.getDate()).padStart(2,"0")}`;
+
+const d = s => { s=String(s||"").trim(); if(!s)return null; let m,x;
+  if(m=s.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})/))x=new Date(+m[1],m[2]-1,+m[3]);
+  else if(m=s.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})/))x=new Date(+m[3],m[2]-1,+m[1]);
+  else{x=new Date(s);if(!isNaN(x))x.setHours(0,0,0,0)}
+  return x&&!isNaN(x)?x:null };
+const fmt = s => { const x=d(s); return x?x.toLocaleDateString("en-ZA",{day:"numeric",month:"short",year:"numeric"}):s };
+const today = () => { const t=new Date(); t.setHours(0,0,0,0); return t };
+
+function blockedFor(roomName,ci,co){ // closed range overlaps stay nights [ci, co)
+  return closed.find(c=>{const s=d(c.start);if(!s)return false;const e=d(c.end)||s;
+    const mine=!c.room||c.room.toLowerCase()===roomName.toLowerCase();
+    return mine && ci<=e && co>s})}
+
+const isOn=r=>!/^(no|n|false|0|booked|full|sold out|unavailable|closed)$/i.test(r.available||"yes");
+function renderRooms(){
+  $("roomGrid").innerHTML=rooms.map(r=>`<article class="room ${isOn(r)?"":"off"}"><div class="ph" role="img" aria-label="${esc(r.name)}" ${r.photo?`style="background-image:url('${esc(r.photo)}')"`:""}></div><div class="b"><h3>${esc(r.name)}</h3><p class="tag">Sleeps ${esc(r.sleeps)}</p><p class="desc">${esc(r.description)}</p><p class="price">${money(r.price)} <small>per night</small></p>${isOn(r)?`<button class="btn" data-room="${esc(r.name)}">Book this room</button>`:`<span class="tag">Fully booked for now</span>`}</div></article>`).join("");
+  const opts=rooms.filter(isOn).map(r=>`<option>${esc(r.name)}</option>`).join("");
+  $("room").innerHTML=opts;$("hroom").innerHTML=`<option value="any">Any room</option>`+opts;
+  document.querySelectorAll("[data-room]").forEach(b=>b.onclick=()=>{$("room").value=b.dataset.room;location.hash="book"});
+}
+function setHero(){
+  const row=settings.find(x=>(x.key||"").toLowerCase().replace(/[^a-z]/g,"")==="heroimage");
+  const u=row&&photoUrl(row.value);if(!u)return;
+  const im=new Image();im.onload=()=>document.documentElement.style.setProperty("--hero",`url("${u}")`);im.src=u}
+function renderBand(){const v=CONFIG.review||{};
+  $("band").innerHTML=v.score?`<div class="score"><b>${esc(v.score)}</b><span>${esc(v.count)}</span></div><blockquote><p>${esc(v.quote)}</p><cite>${esc(v.by)}</cite></blockquote>`:`<blockquote class="solo"><p>Breakfast made to order, every morning, with every stay.</p></blockquote>`}
+const mon=s=>d(s)?d(s).toLocaleDateString("en-ZA",{month:"short"}):"";
+const day=s=>d(s)?d(s).getDate():"";
+function renderLists(){
+  const up=events.filter(e=>{const x=d(e.date);return x&&x>=today()}).sort((a,b)=>d(a.date)-d(b.date));
+  $("evList").innerHTML=up.length?up.map(e=>`<li><span class="dt"><b>${day(e.date)}</b>${mon(e.date)}</span><span><strong>${esc(e.title)}</strong><br>${esc(e.details)}</span></li>`).join(""):"<li><span class='tag'>No events listed. Check back soon.</span></li>";
+  const cl=closed.filter(c=>(d(c.end)||d(c.start))>=today());
+  $("clList").innerHTML=cl.length?cl.map(c=>`<li><span class="dt"><b>${day(c.start)}</b>${mon(c.start)}</span><span><strong>${fmt(c.start)}${c.end?" to "+fmt(c.end):""}</strong><br>${esc(c.reason)}${c.room?" ("+esc(c.room)+")":""}</span></li>`).join(""):"<li><span class='tag'>No closed dates. We’re open.</span></li>";
+}
+
+function stay(){
+  const ci=d($("ci").value),co=d($("co").value),r=rooms.find(x=>x.name===$("room").value);
+  if(!ci||!co||!r)return null;
+  const n=Math.round((co-ci)/864e5);return {ci,co,r,n,total:n*Number(r.price)}}
+function update(){
+  const m=$("msg"),s=stay();m.className="";m.textContent="";$("sum").textContent="";
+  if(!s)return;
+  if(s.n<1){m.className="err";m.textContent="Check-out must be after check-in.";return false}
+  if(s.ci<today()){m.className="err";m.textContent="Check-in can’t be in the past.";return false}
+  const b=blockedFor(s.r.name,s.ci,s.co);
+  if(b){m.className="err";m.textContent=`Not available: closed ${fmt(b.start)}${b.end?" to "+fmt(b.end):""}${b.reason?" ("+b.reason+")":""}. Pick other dates.`;return false}
+  if(+$("gu").value>+s.r.sleeps){m.className="err";m.textContent=`${s.r.name} sleeps ${s.r.sleeps}. Choose a bigger room or fewer guests.`;return false}
+  $("sum").textContent=`${s.n} night${s.n>1?"s":""} × ${money(s.r.price)} = ${money(s.total)}`;return true}
+["room","ci","co","gu"].forEach(i=>$(i).addEventListener("change",update));
+$("ci").addEventListener("change",()=>{const c=d($("ci").value);if(c&&(!$("co").value||d($("co").value)<=c)){c.setDate(c.getDate()+1);$("co").value=ymd(c);update()}});
+
+$("f").addEventListener("submit",e=>{
+  e.preventDefault();
+  if(update()===false||!stay())return;
+  const s=stay();
+  const text=`Hi ${CONFIG.name}, I’d like to book:\n\nName: ${$("name").value}\nRoom: ${s.r.name}\nCheck-in: ${fmt($("ci").value)}\nCheck-out: ${fmt($("co").value)} (${s.n} night${s.n>1?"s":""})\nGuests: ${$("gu").value}\nEstimated total: ${money(s.total)}\n${$("nt").value?"Notes: "+$("nt").value+"\n":""}\nPlease confirm availability and send payment details.`;
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`,"_blank");
+  $("msg").className="ok";$("msg").textContent="WhatsApp is open with your request. Your booking is confirmed once we reply and payment is received.";
+});
+
+const WMO=c=>c===0?"Clear":c<4?"Partly cloudy":c<50?"Fog":c<70?"Rain":c<80?"Snow":c<100?"Showers":"Storm";
+async function weather(){
+  const w=CONFIG.weather;
+  try{
+    const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${w.lat}&longitude=${w.lon}&current=temperature_2m,weather_code&daily=temperature_2m_max&forecast_days=4&timezone=auto`);
+    const j=await r.json();
+    $("wx").textContent=`${Math.round(j.current.temperature_2m)}° ${WMO(j.current.weather_code)} in ${w.label}`;
+    $("wx").title="Next days: "+j.daily.time.slice(1).map((t,i)=>`${new Date(t).toLocaleDateString("en-ZA",{weekday:"short"})} ${Math.round(j.daily.temperature_2m_max[i+1])}°`).join(", ");
+  }catch{$("wx").textContent=`Weather for ${w.label} unavailable`}
+}
+$("hgo").onclick=()=>{
+  const a=$("hci").value;let b=$("hco").value;
+  if(a&&!b){const x=d(a);x.setDate(x.getDate()+1);b=ymd(x)}
+  if(a)$("ci").value=a;if(b)$("co").value=b;$("gu").value=$("hgu").value;
+  let pick=$("hroom").value;
+  if(pick==="any"&&a&&b){const s0=d(a),e0=d(b);const ok=rooms.find(r=>isOn(r)&&!blockedFor(r.name,s0,e0)&&+r.sleeps>=+$("hgu").value);if(ok)pick=ok.name}
+  if(pick&&pick!=="any")$("room").value=pick;
+  update();location.hash="book"};
+
+(async function init(){
+  document.title=`${CONFIG.name} Bed & Breakfast`;
+  $("tagline").textContent=CONFIG.tagline;$("fAddr").textContent=`${CONFIG.name}, ${CONFIG.address}`;$("fPay").textContent=CONFIG.payment;
+  const t=ymd(today());$("ci").min=t;$("co").min=t;$("hci").min=t;$("hco").min=t;
+  weather();
+  try{[rooms,closed,events,settings]=await Promise.all([loadTab(CONFIG.tabs.rooms,DEMO.rooms,"rooms"),loadTab(CONFIG.tabs.closed,DEMO.closed,"closed"),loadTab(CONFIG.tabs.events,DEMO.events,"events"),loadTab(CONFIG.tabs.settings,DEMO.settings,"settings").catch(()=>[])]);
+    rooms.forEach(x=>{x.price=String(parseFloat(String(x.price).replace(/[^\d.]/g,""))||0);x.sleeps=String(parseInt(x.sleeps)||2);x.photo=photoUrl(x.photo)})}
+  catch(err){$("roomGrid").innerHTML=`<p>Couldn’t load your Google Sheet. ${esc(err instanceof TypeError?"Check the sheet ID in CONFIG and that the sheet is shared as “Anyone with the link: Viewer”.":err.message)}</p>`;return}
+  renderRooms();renderLists();renderBand();setHero();
+})();
+const bg=$("bg"),menu=$("menu");
+const setMenu=o=>{menu.classList.toggle("open",o);bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Close menu":"Open menu")};
+bg.onclick=()=>setMenu(!menu.classList.contains("open"));
+menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});
+const lb=$("lb");
+document.querySelectorAll(".gal img").forEach(i=>i.onclick=()=>{lb.querySelector("img").src=i.src;lb.querySelector("img").alt=i.alt;lb.showModal()});
+$("lbx").onclick=()=>lb.close();lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+</script>
+</body>
+</html>
